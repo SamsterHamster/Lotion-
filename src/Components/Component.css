@@ -1,0 +1,58 @@
+
+#tophalfnav{
+    display: flex;
+    justify-content: center;
+    
+  }
+
+#topbarleft{
+    display: flex;
+    flex: 1;
+    offset: left;
+    justify-content: left;
+    text-align: left;
+}
+
+#title{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+    font-size: 44px;
+    font-weight: bold;
+    padding: 5px;
+  }
+
+
+#topbarright{
+    display: flex;
+    visibility: hidden;
+    flex: 1;
+    offset: right;
+    justify-content: right;
+    text-align: right;
+    
+}
+
+#subheader{
+    display: flex;
+    justify-content: center;
+    color: gray;
+    padding-bottom: 5px;
+    border-bottom: solid black ;
+
+}
+
+button{
+    padding-left: 30px;
+    padding-top: 30px;
+    background-color: transparent;
+    font-size: 30px;
+    border: transparent;
+    display: inline-block;
+    
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+  }
