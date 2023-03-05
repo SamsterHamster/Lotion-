@@ -1,12 +1,12 @@
 import React from 'react';
-import "./Component.css";
+import "./NavBar.css";
 
 const NavBar = () => {
     return(
     <section>
         <section id='tophalfnav'>
             <span id = "topbarleft">
-            <button onclick="hidenotes()"> &#9776;</button>
+            <button id = "NavBarButton" onclick="hidenotes()"> &#9776;</button>
             </span>
 
         <span id = "title"> Lotion </span>

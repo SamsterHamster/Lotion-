@@ -1,9 +1,14 @@
-import React from 'react';
+
 
 const Note = () => {
     return(
-        <h1> I am Note</h1>
+        <div class = "notearea">
+            <h1> I am Note</h1>
+
+        </div>
+        
     )
 }
-
 export default Note;
+
+/*export default withStyles(styles)(EditorComponent);*/

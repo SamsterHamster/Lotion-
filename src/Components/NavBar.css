@@ -43,14 +43,13 @@
 
 }
 
-button{
+#NavBarButton{
     padding-left: 30px;
-    padding-top: 30px;
+    padding-top: 25px;
     background-color: transparent;
     font-size: 30px;
     border: transparent;
     display: inline-block;
-    
     border: none;
     text-align: center;
     cursor: pointer;
