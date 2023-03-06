@@ -5,12 +5,12 @@ import React from 'react';
 import ReactQuill from 'react-quill';
 import "./Note.css";
 
-const Note = () => {
+function Note (){
     return (
         <span className='note'>
             <div class = "aboveeditorheader">
 
-                <p id = "notetitle" > Note Title</p>
+                <input type = "text" id = "notetitle" autoFocus />
                 <span id ="editorbuttons">
                     <button id = "savebutton" onclick="savenote()">Save</button>
                     <button id = "deletebutton" onclick="deletenote()">&#128465;</button>
