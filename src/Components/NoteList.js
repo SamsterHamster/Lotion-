@@ -3,7 +3,7 @@ import "./NoteList.css";
 
 const NoteList = () => {
     return(
-        <div class = "notelist">
+        <span class = "notelist">
             <span class = "listheader">   
                 <span id = "lefttitle"> Notes </span>
                 <button id = "NoteListButton" onclick="addnote()">&#43;</button>
@@ -30,7 +30,7 @@ const NoteList = () => {
             </div>
 
 
-        </div>
+        </span>
         
     )
 }

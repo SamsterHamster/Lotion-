@@ -11,7 +11,7 @@ function App() {
       <NavBar />
     </div>
 
-    <div className = "bottom">
+    <div class = "bottom">
       
       <NoteList />
       <Note />

@@ -1,6 +1,6 @@
 .notelist{
-    position: absolute;
     display: flex;
+    flex: 1;
     left: 0px;
     flex-direction: column;
     height: 100%;
@@ -20,13 +20,7 @@
     
   }
 
-#add{
-    display: flex;
-    flex: 1;
-    offset: right;
-    justify-content: right;
-    text-align: right;
-}
+
 
 #NoteListButton{
     padding-right: 15px;
