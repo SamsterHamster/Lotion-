@@ -43,13 +43,14 @@
     font-size: 14px;
     color: #737373;
 }
-#notetime{
+#timeicon{
     flex: 1;
-    padding: 2px;
+    padding-left: 10px;
     font-size: 14px;
 }
   #savebutton{
     padding-right: 15px;
+    padding-left: 15px;
     background-color: transparent;
     font-size: 30px;
     border: transparent;
@@ -90,3 +91,14 @@
     max-width: 1600px;
   }
 
+
+  #nonoteselected{
+
+    color: #737373;
+    text-align: center;
+    justify-content: center;
+    padding: 300px;
+    font-size: 18px;
+
+
+  }

@@ -11,6 +11,10 @@
     border-right: 1px solid gray;
 
 }
+.notelist.hidden{
+    display:none;
+
+}
 
 
 .listheader{
@@ -19,8 +23,6 @@
     border-bottom: 1px solid gray;
     
   }
-
-
 
 #NoteListButton{
     padding-right: 15px;

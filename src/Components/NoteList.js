@@ -1,7 +1,10 @@
 import React from 'react';
 import "./NoteList.css";
 
-function NoteList({notes, addnote}){
+const NoteList = ({notes, addnote, activenote, setactivenote}) => {
+
+    const sortednotes = notes.sort((a, b) => b.lastmodified - a.lastmodified);
+
     return(
         <span class = "notelist">
             <span class = "listheader">   
@@ -11,29 +14,30 @@ function NoteList({notes, addnote}){
 
             <div class = "notebody">
                 
-                {notes?.map((note) => (
-                <div class = "card">
+                {sortednotes?.map(({id,title,body,lastmodified}, i) => (
+                <div className={`card ${id === activenote && "active"}`}
+                    onClick={() => setactivenote(id)}>
                     <div id = "cardtitle">
-                        {note.title}
+                        {title}
 
                     </div>
                     <div id = "lastedit">
-                        Last modified: {new Date(note.lastmodified).toLocaleDateString("en-CA", {
+                        Last modified {""}
+                        {new Date(lastmodified).toLocaleDateString("en-CA", {
 
                             hour: "2-digit",
                             minute:"2-digit"
-                        })}
+                        })};
 
                     </div>
                     <div id = "description">
-                        {note.body && note.body.substr(0,100) + "..."}
+                        <p>{body && body.substr(0,50) + "..."}</p>
 
                     </div>
                 </div>
 
-                ))}
+                ))};
 
-            
             </div>
 
         </span>
