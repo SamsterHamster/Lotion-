@@ -5,6 +5,12 @@ const NoteList = ({notes, addnote, activenote, setactivenote, toggle}) => {
 
     const sortednotes = notes.sort((a, b) => b.lastmodified - a.lastmodified);
 
+    const formathtmltext = (html) =>{
+        const parser = new DOMParser();
+        const filtered = parser.parseFromString(html,"text/html");
+        return filtered.documentElement.textContent;
+    }
+
     return(
         <span className={`notelist ${toggle ? "hidden" : ""}`}>
             <span class = "listheader">   
@@ -31,7 +37,7 @@ const NoteList = ({notes, addnote, activenote, setactivenote, toggle}) => {
 
                     </div>
                     <div id = "description">
-                        <p>{body && body.substr(0,100) + "..."}</p>
+                        <p>{body && formathtmltext(body.substr(0,50)) + "..."}</p>
 
                     </div>
                 </div>

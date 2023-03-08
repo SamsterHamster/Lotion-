@@ -1,12 +1,14 @@
 
 
 
-import React from 'react';
+import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import "./Note.css";
 import "react-quill/dist/quill.snow.css"
 
 function Note ({deletenote, activenote, updatenote}){
+
+    const[mode,setmode] = useState(true);
 
 
     const editfield = (key,value) => {
@@ -30,20 +32,34 @@ function Note ({deletenote, activenote, updatenote}){
             deletenote(activenote.id);
         }
 
-    }; 
+    };
+    
 
+    const savemode = () =>{
+        setmode(false);
+    }
+    const editmode = () =>{
+        setmode(true);
+    }
     return (
         <span className='note'>
             <div class = "aboveeditorheader">
 
                 <input type = "text" id = "notetitle" value={activenote.title} onChange={(e) => editfield("title",e.target.value)} autoFocus />
                 <span id ="editorbuttons">
-                    <button id = "savebutton" onClick="savenote()">Save</button>
+                    {mode? (
+                        <button id = "savebutton" onClick={savemode}>Save</button>
+                    ):(
+                        <button id = "savebutton" onClick={editmode}>Edit</button>
+                
+                    )};
+
                     <button id = "deletebutton" onClick={handledelete}>&#128465;</button>
-                    </span>
+                </span>
+                    
         
             </div>
-
+            
             <div class = "aboveeditorsubheader">
 
                     <span id = "notedate">
@@ -61,10 +77,16 @@ function Note ({deletenote, activenote, updatenote}){
 
             </div>
 
-            <div id = "editor">
-                <ReactQuill theme="snow" value={activenote.body} onChange={(e) => editfield("body",e.target.value)}/>
-            </div>
+            {mode?(
+                 <div id = "editor">
+                 <ReactQuill theme="snow" value={activenote.body} onChange={(value) => editfield("body",value)}/>
+             </div>
+            
+            ):(
+                <div className='savedtext' dangerouslySetInnerHTML={{__html:activenote.body}}></div>
 
+            )
+        }
         </span>
     )
 }
