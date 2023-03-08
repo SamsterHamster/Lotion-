@@ -41,12 +41,38 @@ function Note ({deletenote, activenote, updatenote}){
     const editmode = () =>{
         setmode(true);
     }
+
+    const options = {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+    };
+    
+    const formatDate = (when) => {
+        const formatted = new Date(when).toLocaleString("en-US", options);
+        if (formatted === "Invalid Date") {
+            return "";
+        }
+        return formatted;
+    };
+
+    const calendarupdate = (i) => {
+        const updateddate = new Date(i.target.value);
+        const theone = {
+            ...activenote,
+            lastmodified: updateddate.getTime(),
+        };
+        updatenote(theone);
+    };
+
     return (
         <span className='note'>
-            <div class = "aboveeditorheader">
+            <div className = "aboveeditorheader">
 
                 <input type = "text" id = "notetitle" value={activenote.title} onChange={(e) => editfield("title",e.target.value)} autoFocus />
-                <span id ="editorbuttons">
+                <span id ="editorbuttons" >
                     {mode? (
                         <button id = "savebutton" onClick={savemode}>Save</button>
                     ):(
@@ -60,17 +86,10 @@ function Note ({deletenote, activenote, updatenote}){
         
             </div>
             
-            <div class = "aboveeditorsubheader">
+            <div className = "aboveeditorsubheader">
 
                     <span id = "notedate">
-                        {new Date(activenote.lastmodified).toLocaleDateString("en-CA", {
-
-                            hour: "2-digit",
-                            minute:"2-digit"
-                        })};
-
-                    </span>
-                    <span id = "timeicon"> &#128197;
+                    <input type="datetime-local" value = {formatDate(activenote.lastmodified)} onChange={calendarupdate} disabled={!mode}/>
                     
 
                     </span>

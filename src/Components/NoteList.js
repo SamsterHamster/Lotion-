@@ -18,7 +18,7 @@ const NoteList = ({notes, addnote, activenote, setactivenote, toggle}) => {
                 <button id = "NoteListButton" onClick={addnote}>&#43;</button>
             </span>
 
-            <div class = "notebody">
+            <div className = "notebody">
                 
                 {sortednotes?.map(({id,title,body,lastmodified}, i) => (
                 <div className={`card ${id === activenote && "active"}`}
