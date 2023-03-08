@@ -1,12 +1,12 @@
 import React from 'react';
 import "./NoteList.css";
 
-const NoteList = ({notes, addnote, activenote, setactivenote}) => {
+const NoteList = ({notes, addnote, activenote, setactivenote, toggle}) => {
 
     const sortednotes = notes.sort((a, b) => b.lastmodified - a.lastmodified);
 
     return(
-        <span class = "notelist">
+        <span className={`notelist ${toggle ? "hidden" : ""}`}>
             <span class = "listheader">   
                 <span id = "lefttitle"> Notes </span>
                 <button id = "NoteListButton" onClick={addnote}>&#43;</button>
@@ -31,7 +31,7 @@ const NoteList = ({notes, addnote, activenote, setactivenote}) => {
 
                     </div>
                     <div id = "description">
-                        <p>{body && body.substr(0,50) + "..."}</p>
+                        <p>{body && body.substr(0,100) + "..."}</p>
 
                     </div>
                 </div>

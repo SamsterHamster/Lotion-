@@ -11,7 +11,7 @@ function Note ({deletenote, activenote, updatenote}){
 
     const editfield = (key,value) => {
         updatenote({
-            id: activenote.id, 
+            ...activenote,
             [key]: value,
             lastmodified: Date.now(),
         })
@@ -62,7 +62,7 @@ function Note ({deletenote, activenote, updatenote}){
             </div>
 
             <div id = "editor">
-                <ReactQuill theme="snow"/>
+                <ReactQuill theme="snow" value={activenote.body} onChange={(e) => editfield("body",e.target.value)}/>
             </div>
 
         </span>

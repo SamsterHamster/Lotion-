@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import NavBar from './Components/NavBar';
 import NoteList from './Components/NoteList';
 import Note from './Components/Note';
 import "./App.css";
@@ -23,7 +22,7 @@ function App() {
     const newNote = {
       id: uuid(),
       title: "Untitled Note",
-      body: "",
+      body: " ",
       lastmodified: Date.now(),
     };
 
@@ -50,11 +49,35 @@ function App() {
     setNotes(updatednotearray);
   }
 
+  const [disp,setdisp] = useState(false);
+
+    const Hidenotes = () => {
+        (disp?setdisp(false):setdisp(true))
+
+
+      
+    };
+
+
   return (
     <div className='notionClone'>
-    <div className='Nav'>
-      <NavBar />
-    </div>
+    <section>
+        <section id='tophalfnav'>
+            <span id = "topbarleft">
+            <button id = "NavBarButton" onClick={Hidenotes}> &#9776;</button>
+            </span>
+
+        <span id = "title"> Lotion </span>
+
+        <span id = "topbarright">
+            <button> &#9776;</button>
+        </span>
+
+        </section>
+      
+      <p id = "subheader"> Like Notion, But Worse!</p>
+
+      </section>
 
     <div class = "bottom">
       
@@ -63,6 +86,7 @@ function App() {
       addnote ={addnote} 
       activenote={activenote} 
       setactivenote={setactivenote}
+      toggle={disp}
       
       />
       <Note 
